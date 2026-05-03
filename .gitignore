@@ -30,16 +30,15 @@ demo_out/
 archive/artifacts/
 archive/runs/
 
-# Model weights (keep final weights via negation below)
+# Model weights - ignore all except final submission weights
 *.pt
 *.pth
+!project_aditya_dahiya/checkpoints/final_weights.pt
+!project_aditya_dahiya/checkpoints/final_weights.pth
 
 # Training outputs (project-specific)
 project_aditya_dahiya/artifacts/
 project_aditya_dahiya/runs/
-project_aditya_dahiya/checkpoints/*
-!project_aditya_dahiya/checkpoints/final_weights.pt
-!project_aditya_dahiya/checkpoints/final_weights.pth
 
 # Ultralytics
 **/runs/

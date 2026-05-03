@@ -112,7 +112,7 @@ def _predict_video(source_path: Path, output_path: Path | None, detector: Target
     }
 
 
-def the_predictor(
+def predict_targets(
     source: str | Path | Iterable[str | Path],
     output_path: str | Path | None = None,
     weights: str | Path | None = None,
@@ -120,7 +120,7 @@ def the_predictor(
     detector = load_detector(weights)
 
     if isinstance(source, (list, tuple)):
-        return [the_predictor(item, output_path=output_path, weights=weights) for item in source]
+        return [predict_targets(item, output_path=output_path, weights=weights) for item in source]
 
     source_path = Path(source)
     output_destination = Path(output_path) if output_path is not None else None
@@ -138,4 +138,4 @@ if __name__ == "__main__":
 
     input_path = sys.argv[1]
     explicit_output = sys.argv[2] if len(sys.argv) > 2 else None
-    print(the_predictor(input_path, output_path=explicit_output))
+    print(predict_targets(input_path, output_path=explicit_output))

@@ -32,6 +32,6 @@ confidence_threshold = 0.25
 iou_threshold = 0.45
 
 pretrained_weights = "yolov8n.pt"
-final_weights_name = "final_weights.pt"
+final_weights_name = "final_weights.pth"
 data_yaml_name = "dataset.yaml"
 run_name = "target_detector"

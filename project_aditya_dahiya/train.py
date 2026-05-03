@@ -40,15 +40,26 @@ def latest_best_weights(runs_root: Path) -> Path | None:
     return weight_files[0] if weight_files else None
 
 
-def the_trainer(
-    data_root: Path | str = DATA_DIR,
-    epochs_override: int | None = None,
-    batch_size_override: int | None = None,
-    output_root: Path | str = ARTIFACTS_DIR,
-    weights: str | Path | None = pretrained_weights,
-    run_label: str = run_name,
-    include_location_substrings: list[str] | None = None,
+def train_model(
+    model: Any = None,
+    num_epochs: int | None = None,
+    train_loader: Any = None,
+    loss_fn: Any = None,
+    optimizer: Any = None,
+    *args: Any,
+    **kwargs: Any,
 ) -> dict[str, Any]:
+    if train_loader is not None or loss_fn is not None or optimizer is not None:
+        print("Using YOLO's integrated training loop. Ignoring custom dataloader, loss_fn, and optimizer.")
+
+    data_root = kwargs.get("data_root", DATA_DIR)
+    epochs_override = num_epochs if num_epochs is not None else kwargs.get("epochs_override")
+    batch_size_override = kwargs.get("batch_size_override")
+    output_root = kwargs.get("output_root", ARTIFACTS_DIR)
+    weights = kwargs.get("weights", pretrained_weights)
+    run_label = kwargs.get("run_label", run_name)
+    include_location_substrings = kwargs.get("include_location_substrings")
+
     output_path = Path(output_root)
     dataset_root = output_path / "yolo_dataset"
     data_yaml = output_path / data_yaml_name
@@ -132,9 +143,9 @@ if __name__ == "__main__":
             default_locations.append("5")
         include_subs = _expand_location_selection(default_locations, args.nvg_on)
 
-    result = the_trainer(
+    result = train_model(
+        num_epochs=args.epochs,
         data_root=args.data_dir or DATA_DIR,
-        epochs_override=args.epochs,
         batch_size_override=args.batch,
         weights=args.weights or pretrained_weights,
         run_label=args.run_label or run_name,
