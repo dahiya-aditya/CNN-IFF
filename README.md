@@ -1,3 +1,13 @@
+
+## Acknowledgment
+
+This project was developed with substantial assistance from **GitHub Copilot**, a generative AI coding assistant. Copilot was used extensively throughout the project for:
+- Code generation and refactoring
+- Bug identification and fixes
+- Documentation writing
+- Script development for utilities and validation
+
+All code has been reviewed and tested to ensure correctness and functionality.
 # project_aditya_dahiya
 
 Single-class target detection in simulated drone footage using YOLOv8n.
