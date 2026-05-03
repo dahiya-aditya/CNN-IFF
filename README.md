@@ -162,3 +162,13 @@ External assets and additional data are available on Google Drive:
 - Falls back to CPU if no GPU detected.
 - Inference on 640×640 images takes ~50–100ms on GPU, ~500ms on CPU.
 - Adjust `confidence_threshold` in `config.py` to tune detection sensitivity.
+
+## Acknowledgment
+
+This project was developed with substantial assistance from **GitHub Copilot**, a generative AI coding assistant. Copilot was used extensively throughout the project for:
+- Code generation and refactoring
+- Bug identification and fixes
+- Documentation writing
+- Script development for utilities and validation
+
+All code has been reviewed and tested to ensure correctness and functionality.
