@@ -1,0 +1,46 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.log
+
+# Virtual environments
+.venv/
+venv/
+.env/
+.env.*
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Video files (media)
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.webm
+
+# Video directories
+raw_videos/
+demo_video/
+demo_out/
+
+# Specific archive directories
+archive/artifacts/
+archive/runs/
+
+# Model weights (keep final weights via negation below)
+*.pt
+*.pth
+
+# Training outputs (project-specific)
+project_aditya_dahiya/artifacts/
+project_aditya_dahiya/runs/
+project_aditya_dahiya/checkpoints/*
+!project_aditya_dahiya/checkpoints/final_weights.pt
+!project_aditya_dahiya/checkpoints/final_weights.pth
+
+# Ultralytics
+**/runs/
+**/weights/
